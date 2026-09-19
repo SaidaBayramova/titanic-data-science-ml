@@ -1,47 +1,47 @@
-# 🚢 Titanic - End-to-End Data Science & Machine Learning Project
+# 🚢 Titanic - Data Science və Machine Learning Layihəsi
 
-This project covers a complete Data Science pipeline on the classic Titanic dataset, ranging from Exploratory Data Analysis (EDA) and Feature Engineering to Machine Learning tuning, Deep Learning (Keras MLP), Error Analysis, and a live Streamlit Web Application.
-
----
-
-## 📌 Project Overview
-- **Problem Type:** Supervised Learning (Binary Classification)
-- **Target Variable:** `Survived` (0 = Did not survive, 1 = Survived)
-- **Best Model Accuracy:** **82.12%** (Keras Multi-Layer Perceptron) & **81.56%** (Random Forest / XGBoost)
+Bu layihə klassik Titanic dataseti üzərində kəşfiyyat xarakterli data analizindən (EDA) başlayaraq, xüsusiyyət mühəndisliyi (Feature Engineering), maşın öyrənməsi modellərinin tənzimlənməsi (Hyperparameter Tuning), dərin öyrənmə (Keras MLP), səhv analizi və canlı Streamlit veb-tətbiqinin hazırlanmasına qədər olan tam Data Science prosesini əhatə edir.
 
 ---
 
-## 🛠️ Data Pipeline & Workflow
+## 📌 Layihə Haqqında Qısa Məlumat
+- **Məsələnin Növü:** Supervised Learning (Binary Classification / İkili Təsnifat)
+- **Hədəf Dəyişəni (Target):** `Survived` (0 = Həlak oldu, 1 = Sağ qaldı)
+- **Ən Yüksək Dəqiqlik (Accuracy):** **82.12%** (Keras Multi-Layer Perceptron) və **81.56%** (Random Forest / XGBoost)
 
-1. **Data Cleaning & Imputation:**
-   - Filled missing `Age` values with the median.
-   - Filled missing `Embarked` values with the mode.
-   - Dropped `Cabin` due to high missing rate (~77%).
+---
 
-2. **Feature Engineering & Encoding:**
-   - Created `FamilySize` (`SibSp` + `Parch` + 1).
-   - Encoded `Sex` (Binary) and `Embarked` (One-Hot Encoding).
-   - Normalized numerical features using `StandardScaler` for Deep Learning.
+## 🛠️ Data Boru Kəməri və Mərhələlər (Pipeline)
 
-3. **Model Evaluation & Comparison:**
+1. **Datanın Təmizlənməsi (Data Cleaning & Imputation):**
+   - `Age` (Yaş) sütunundakı boşluqlar median dəyər ilə dolduruldu.
+   - `Embarked` (Liman) sütunundakı boşluqlar mode (ən çox təkrarlanan) dəyər ilə dolduruldu.
+   - Yüksək əksiklik dərəcəsinə (~77%) görə `Cabin` sütunu silindi.
 
-| Model | Accuracy (%) |
+2. **Xüsusiyyət Mühəndisliyi və Encoding:**
+   - Yeni `FamilySize` (`SibSp` + `Parch` + 1) sütunu yaradıldı.
+   - `Sex` (Binary) və `Embarked` (One-Hot Encoding) sütunları ədədə çevrildi.
+   - Dərin öyrənmə modeli üçün ədədi xüsusiyyətlər `StandardScaler` ilə normallaşdırıldı.
+
+3. **Modellərin Qiymətləndirilməsi və Müqayisəsi:**
+
+| Model | Dəqiqlik (%) |
 | :--- | :--- |
-| **Keras Neural Network (MLP)** | **82.12%** |
+| **Keras Neyron Şəbəkəsi (MLP)** | **82.12%** |
 | **XGBoost Classifier** | **81.56%** |
 | **Random Forest (Tuned)** | **81.56%** |
 | **LightGBM Classifier** | **81.00%** |
 | **Logistic Regression** | **80.45%** |
 
-4. **Error Analysis:**
-   - Evaluated False Positives (15) and False Negatives (18).
-   - Main finding: The model tends to misclassify male survivors in 3rd class due to strong historical class bias.
+4. **Səhv Analizi (Error Analysis):**
+   - False Positive (15 nəfər) və False Negative (18 nəfər) hallar təhlil edildi.
+   - **Əsas nəticə:** Model güclü tarixsel sinif fərqi (class bias) səbəbindən 3-cü sinifdə sağ qalan kişiləri yanlış təxmin etməyə meyllidir.
 
 ---
 
-## 🚀 Interactive Streamlit Web App
-The project includes a built-in Streamlit interface allowing users to input custom passenger parameters (Age, Class, Sex, Fare) and get real-time survival predictions with probability scores.
+## 🚀 İnteraktiv Streamlit Veb-Tətbiqi
+Layihə istifadəçilərin sərnişin parametrlərini (Yaş, Bilet Sinfi, Cinsiyyət, Qiymət) daxil edərək real vaxt rejimində sağ qalma ehtimalını hesablayan Streamlit interfeysinə malikdir.
 
 ```bash
-# Run the Streamlit app locally
+# Veb tətbiqi lokal olaraq başlatmaq üçün:
 streamlit run app.py
